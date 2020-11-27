@@ -11,6 +11,7 @@ plugins:
   - serverless-offline
   - serverless-webpack
   - serverless-domain-manager
+  - serverless-apigw-binary
 
 custom:
   ${file(config/custom/custom.yml)}
