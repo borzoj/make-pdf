@@ -10,7 +10,10 @@ export const handler = async (event, context) => {
   log.info('start')
   let browser = null
   try {
-    const html = '<h1>Test</h1><p>Hello world</p>'
+    const { content, options } = JSON.parse(event.body)
+    const { format, margin } = options
+    const { top, right, bottom, left } = margin
+
     browser = await chromium.puppeteer.launch({
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
@@ -19,12 +22,13 @@ export const handler = async (event, context) => {
     })
 
     const page = await browser.newPage()
-    page.setContent(html)
+
+    page.setContent(content)
 
     const pdf = await page.pdf({
-      format: 'A4',
+      format,
       printBackground: true,
-      margin: { top: '1cm', right: '1cm', bottom: '1cm', left: '1cm' }
+      margin: { top, right, bottom, left }
     })
 
     const response = {
@@ -38,7 +42,7 @@ export const handler = async (event, context) => {
     }
     return response
   } catch (error) {
-    log.error('erorr', { error })
+    log.error('error', { error })
     throw error
   } finally {
     if (browser !== null) {

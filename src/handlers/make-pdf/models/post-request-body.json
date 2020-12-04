@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "PostMakePdfRequestBody",
+    "type": "object",
+    "properties": {
+      "content": {
+        "type": "string"
+      },
+      "options": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string"
+          },
+          "margin": {
+            "type": "object",
+            "properties": {
+              "top": {
+                "type": "string"
+              },
+              "right": {
+                "type": "string"
+              },
+              "bottom": {
+                "type": "string"
+              },
+              "left": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "top",
+              "right",
+              "bottom",
+              "left"
+            ]
+          }
+        },
+        "required": [
+          "format", 
+          "margin"
+        ]
+      }
+    },
+    "required": [
+      "content",
+      "options"
+    ]
+}

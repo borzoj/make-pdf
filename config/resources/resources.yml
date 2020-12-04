@@ -7,16 +7,3 @@ Resources:
             Ref: ApiGatewayRestApi
           ValidateRequestBody: true
           ValidateRequestParameters: true
-  requestsTable:
-    Type: 'AWS::DynamoDB::Table'
-    Properties:
-      TableName: ${self:provider.environment.TABLE_HELLO_WORLD}
-      AttributeDefinitions:
-        - AttributeName: id
-          AttributeType: S
-      KeySchema:
-        - AttributeName: id
-          KeyType: HASH
-      ProvisionedThroughput:
-        ReadCapacityUnits: 5
-        WriteCapacityUnits: 5

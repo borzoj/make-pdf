@@ -1,5 +1,5 @@
 models:
   -
-    name: PostHelloWorldRequestBody
+    name: PostMakePdfRequest
     contentType: "application/json"
-    schema: ${file(src/handlers/hello-world/models/post-request-body.json)}
+    schema: ${file(src/handlers/make-pdf/models/post-request-body.json)}

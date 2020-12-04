@@ -19,10 +19,10 @@ custom:
 provider:
   name: aws
   stackTags:
-    project: Comms-Service
+    project: Make-PDF
     stage: ${self:provider.stage}
     user: ${env:USER, 'nouser'}
-    team: unicorn
+    team: testkits
   runtime: nodejs12.x
   region: eu-west-1
   stage: ${opt:stage, 'local'}

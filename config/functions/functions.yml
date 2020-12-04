@@ -1,12 +1,14 @@
-hello-world:
-  handler: src/handlers/hello-world/get.handler
+make-pdf:
+  handler: src/handlers/make-pdf/post.handler
   events:
     - http:
-        path: /hello-world
-        method: get
+        path: /make-pdf
+        method: post
         cors: true
         documentation:
-          summary: get hello-world
+          summary: create a pdf document
+          requestModels:
+              application/json: PostMakePdfRequest
   package:
     include:
         - ./resources/**

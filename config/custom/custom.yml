@@ -3,10 +3,6 @@ webpack:
   webpackConfig: 'webpack.config.js'   # Name of webpack configuration file
   includeModules: true   # Node modules configuration for packaging
   packager: 'npm'   # Packager that will be used to package your external modules
-dynamodb:
-  start:
-    port: ${self:provider.environment.DYNAMODB_PORT_NO}
-    inMemory: true
 documentation:
   ${file(config/documentation/documentation.yml)}
 customDomainEnabled:
@@ -14,6 +10,9 @@ customDomainEnabled:
   stage: true
   sandbox: false
   local: false
+apigwBinary:
+    types:
+      - 'application/pdf'
 customDomain:
   enabled: ${self:custom.customDomainEnabled.${self:provider.stage}}
   domainName: "${self:provider.environment.CUSTOM_DOMAIN_NAME}"
